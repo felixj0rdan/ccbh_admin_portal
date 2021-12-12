@@ -14,7 +14,6 @@ class UserModel(db.Model):
     email = db.Column(db.String(200))
     password = db.Column(db.String(80))
     status = db.Column(db.Integer(), default=2)
-    doc_count = db.Column(db.Integer(), default=0)
 
     def __init__(self, email, phonenumber, name):
 

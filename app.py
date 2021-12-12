@@ -8,7 +8,7 @@ from db import db
 from blacklist import BLACKLIST
 
 from resources.users import UserRegister, UserLogin, UserAppoinments, UserAppoinments2
-from resources.appointments import newAppointment, UploadDoc, getDoc
+from resources.appointments import newAppointment, getAppointments
 
 app = Flask(__name__)
 CORS(app)
@@ -101,8 +101,7 @@ api.add_resource(UserAppoinments2, '/user-appointments2/<int:user_id>')
 # appointments
 
 api.add_resource(newAppointment, '/new-appointment')
-api.add_resource(UploadDoc, '/upload-doc')
-api.add_resource(getDoc, '/appointment-doc/<string:path>')
+api.add_resource(getAppointments, '/appointments')
 
 if __name__ == '__main__':
     db.init_app(app)

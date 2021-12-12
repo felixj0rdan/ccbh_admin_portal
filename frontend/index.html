@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type = "text/javascript" >
+        function sub(){
+            let file = document.getElementById("file").files[0];
+            let summary = document.getElementById("summary").value
+            let formData = new FormData();
+
+            formData.append("summary", summary);
+            formData.append("file", file);
+            fetch('http://127.0.0.1:5005/new-appointment', {method: "POST", body: formData})
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="sub()">
+        Summary: <input type="text" id="summary" /><br/>
+        Files: <input type="file" id="file" /><br/>
+        <input type="submit" />
+    </form>
+</body>
+</html>
